@@ -29,7 +29,7 @@ def index():
 
     return 'No users found'
 
-
+# this method is to add data of new users to the DynamoDB table.
 @app.route('/signup-success', methods=['post'])
 def signup():
     if request.method == 'POST':
@@ -75,6 +75,7 @@ def edit():
 def profile():
     return render_template('profile.html')
 
+# this method pass data to the client side from the DynamoDB table after checking the credentials.
 @app.route('/profile-edit',methods = ['post'])
 def check():
     if request.method=='POST':
@@ -105,7 +106,7 @@ def check():
     invalid_msg = "Invalid Credentials !"        
     return render_template("login.html", invalid_msg = invalid_msg)
 
-
+# this method is to update the new data in the DynamoDB table
 @app.route('/profile-edit/<string:email>', methods=['PUT'])
 def update_data(email):
 
@@ -148,6 +149,7 @@ def update_data(email):
         'response' : response
     }       
 
+# this method is to present current data on the client side.
 @app.route('/profile/<string:registration_no>')
 def viewProfileCard(registration_no):
     table = dynamodb.Table('users')
