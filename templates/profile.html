@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!-- Designined by Sandun Chandrasiri -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Profile {{registration_no}} </title>
+    <link rel="stylesheet" href="../static/css/style-profile.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">
+      Welcome {{name}}
+      <div class="button-logout">
+        <a href="/">Logout</a>
+      </div>
+    </div>
+    
+    
+    <div class="content">
+      <form id="form-edit">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details" for="name">Full Name</span>
+            <input type="text" name="name" value="{{ name }}" id="name" required/>
+          </div>
+          <div class="input-box">
+            <span class="details" for="email">Email</span>
+            <input type="text" name="email" value="{{ email }}" id="email" readonly required/>
+          </div>
+          <div class="input-box">
+            <span class="details" for="contact-no">Contact Number</span>
+            <input type="text" name="contact-no" value="{{ contact_no }}" id="contact-no" required/>
+          </div>
+          <div class="input-box">
+            <span class="details" for="registration-no">Registration Number</span>
+            <input type="text" name="registration-no" value="{{ registration_no }}" readonly required/>
+          </div>
+          <div class="input-box">
+            <span class="details" for="degree">Degree Program</span>
+            <select id="degree" name="degree">
+              <option value="BSC Computer Science and Engineering" {% if
+                degree=='BSC Computer Science and Engineering' %}selected{% endif %}>
+                BSC Computer Science and Engineering
+              </option>
+              <option value="BSC Mechanical Engineering" {% if degree=='BSC Mechanical Engineering'
+                %}selected{% endif %}>
+                BSC Mechanical Engineering
+              </option>
+              <option value="BSC Civil Engineering" {% if degree=='BSC Civil Engineering' %}selected{% endif
+                %}>
+                BSC Civil Engineering
+              </option>
+              <option value="BSC Electrical Engineering" {% if degree=='BSC Electrical Engineering'
+                %}selected{% endif %}>
+                BSC Electrical Engineering
+              </option>
+            </select>
+          </div>
+          <div class="input-box">
+            <span class="details" for="gpa">GPA</span>
+            <input type="text" name="gpa" value="{{ gpa }}" id="gpa" required/>
+          </div>
+          <div class="input-box">
+            <span class="details" for="introduction">Introduction</span>
+            <textarea type="text" name="introduction" id="introduction" required  autocomplete="off" rows="8" cols="44">
+                {{ introduction }}
+            </textarea>
+          </div>
+          <div class="input-box">
+            <span class="details" for="skills">Skills</span>
+            <textarea type="text" id="skills" name="skills" required  autocomplete="off" rows="8" cols="44">
+                {{ skills }}
+            </textarea>
+          </div>
+        </div>
+        
+        <div class="button">
+          <input type="submit" value="Update"/>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Javascript file, src="../static/script.js" -->
+
+  <script>
+    document.getElementById('form-edit').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent form submission
+      const email = document.getElementById('email').value;
+      const name = document.getElementById('name').value;
+      const contact_no = document.getElementById('contact-no').value;
+      const degree = document.getElementById('degree').value;
+      const gpa = document.getElementById('gpa').value;
+      const skills = document.getElementById('skills').value;
+      const introduction = document.getElementById('introduction').value;
+
+      // Get form data
+      const formData = {
+        email: email,
+        name: name,
+        contact_no: contact_no,
+        degree: degree,
+        gpa: gpa,
+        skills: skills,
+        introduction: introduction
+      };
+
+      // Send PUT request using fetch
+      fetch('/profile-edit/' + email, {
+        method: 'PUT',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(function (response) {
+          console.log(formData);
+          console.log('PUT request successful');
+          alert('Updated successfully');
+          window.location.reload();
+        })
+        .catch(function (error) {
+          console.log('Error:', error);
+          alert('Error');
+        });
+    });
+  </script>
+</body>
+</html>

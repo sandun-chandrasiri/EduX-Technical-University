@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduX Technical University</title>
+    <link rel="stylesheet" href="../static/css/style-login.css" />
+  </head>
+  <body>
+    <div class="message-section">
+      {% if success_msg %}
+      <div class="alert alert-success">
+        <strong>Success !</strong> {{ success_msg }}
+      </div>
+      {% endif %}
+      {% if error_msg %}
+      <div class="alert alert-danger">
+        <strong>Error !</strong> {{ error_msg }}
+      </div>
+      {% endif %}
+      {% if invalid_msg %}
+      <div class="alert alert-danger">
+        <strong>Invalid !</strong> {{ invalid_msg }}
+      </div>
+      {% endif %}
+    </div>
+
+    <main>
+      <div class="box">
+        <div class="inner-box">
+          <div class="forms-wrap">
+            <form method="post" action="/profile-edit" autocomplete="off" class="sign-in-form">
+              <div class="logo">
+                <h4>EduX Technical University</h4>
+              </div>
+
+              <div class="heading">
+                <h2>Welcome Back</h2>
+                <h6>Not registred yet?</h6>
+                <a href="#" class="toggle">Sign up</a>
+              </div>
+
+              <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                    type="text"
+                    minlength="4"
+                    class="input-field"
+                    name="email"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Email</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                    type="password"
+                    minlength="4"
+                    class="input-field"
+                    name="password"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Password</label>
+                </div>
+
+                <input type="submit" value="Sign In" class="sign-btn" />
+
+                <p class="text">
+                  Forgotten your password or you login datails?
+                  <a href="#">Get help</a> signing in
+                </p>
+              </div>
+            </form>
+
+            <form method="post" action="/signup-success" autocomplete="off" class="sign-up-form">
+              <div class="logo">
+                <h4>EduX Technical University</h4>
+              </div>
+
+              <div class="heading">
+                <h2>Get Started</h2>
+                <h6>Already have an account?</h6>
+                <a href="#" class="toggle">Sign in</a>
+              </div>
+
+              <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                    type="text"
+                    minlength="4"
+                    class="input-field"
+                    name="name"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Name</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                    type="number"
+                    maxlength="4"
+                    class="input-field"
+                    name="registration-no"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Registration Number</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                    type="email"
+                    class="input-field"
+                    name="email"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Email</label>
+                </div>
+
+                <div class="input-wrap">
+                  <select class="input-field" name="degree" autocomplete="off" required>
+                    <option value="" disabled selected></option>
+                    <option value="BSc Computer Science Engineering" name="computer-science">BSc Computer Science Engineering</option>
+                    <option value="BSc Mechanical Engineering" name="mechanical">BSc Mechanical Engineering</option>
+                    <option value="BSc Civil Engineering" name="civil">BSc Civil Engineering</option>
+                    <option value="program4" name="electrical">BSc Civil Engineering</option>
+                  </select>
+                  <label>Degree Program</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                    type="number"
+                    minlength="10"
+                    class="input-field"
+                    name="contact-no"
+                    autocomplete="off"
+                    required
+                  />
+                  <label for="contact-no">Contact No.</label>
+                </div>
+
+                <div class="input-wrap">
+                  <textarea
+                    class="input-field"
+                    name="introduction"
+                    autocomplete="off"
+                    required
+                    rows="8" 
+                    cols="50"
+                    >
+                  </textarea>
+                  <label for="introduction">Introduction</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                    type="text"
+                    class="input-field"
+                    name="gpa"
+                    autocomplete="off"
+                    required
+                  />
+                  <label for="gpa">GPA</label>
+                </div>
+
+                <div class="input-wrap">
+                  <textarea
+                    class="input-field"
+                    name="skills"
+                    autocomplete="off"
+                    required
+                    rows="8" 
+                    cols="50"
+                    >
+                  </textarea>
+                  <label for="skills">Skills</label>
+                </div>
+                
+                <div class="input-wrap">
+                  <input
+                    type="password"
+                    minlength="4"
+                    class="input-field"
+                    name="password"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Password</label>
+                </div>
+
+                <input type="submit" value="Sign Up" class="sign-btn" />
+
+                <p class="text">
+                  By signing up, I agree to the
+                  <a href="#">Terms of Services</a> and
+                  <a href="#">Privacy Policy</a>
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <div class="carousel">
+            <div class="images-wrapper">
+              <img src="../static/img/image1.png" class="image img-1 show" alt="" />
+              <img src="../static/img/image2.png" class="image img-2" alt="" />
+              <img src="../static/img/image3.png" class="image img-3" alt="" />
+            </div>
+
+            <div class="text-slider">
+              <div class="text-wrap">
+                <div class="text-group">
+                  <h2>Create your own Profile</h2>
+                  <h2>Update your Profile Details</h2>
+                  <h2>Showcase Yourself in the Industry</h2>
+                </div>
+              </div>
+
+              <div class="bullets">
+                <span class="active" data-value="1"></span>
+                <span data-value="2"></span>
+                <span data-value="3"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Javascript file -->
+
+    <script src="../static/app-login.js"></script>
+  </body>
+</html>

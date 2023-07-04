@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- @author: Sandun Chandrasiri -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> EduX Technical University </title>
+    <link rel="stylesheet" href="../static/css/style-public-profile.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><a href="/">EduX Technical University></a></div>
+      <ul class="menu">
+        
+      </ul>
+      <div class="buttons">
+        <a href="/">Home</a>
+        <a href="/login">Login</a>
+        <a href="/login">Register</a>
+      </div>
+    </nav>
+    <h1 class="edit-title">{{ user.name }}</h1>
+
+      <div class="container-section">
+
+        <table>
+          <tr>
+              <td class="tb-title">Registration Number:</td>
+              <td>{{ user.registration_no }}</td>
+          </tr>
+          <tr>
+              <td class="tb-title">Name:</td>
+              <td>{{ user.name }}</td>
+          </tr>
+          <tr>
+              <td class="tb-title">Email:</td>
+              <td>{{ user.email }}</td>
+          </tr>
+          <tr>
+              <td class="tb-title">Contact Number:</td>
+              <td>{{ user.contact_no }}</td>
+          </tr>
+          <tr>
+              <td class="tb-title">Degree:</td>
+              <td>{{ user.degree }}</td>
+          </tr>
+          <tr>
+              <td class="tb-title">GPA:</td>
+              <td>{{ user.gpa }}</td>
+          </tr>
+          <tr>
+              <td class="tb-title">Skills:</td>
+              <td>
+                <textarea rows="4" cols="50" readonly>{{ user.skills }}</textarea>
+              </td>
+          </tr>
+          <tr>
+              <td class="tb-title">Introduction:</td>
+              <td>
+                <textarea rows="4" cols="50" readonly>{{ user.introduction }}</textarea>
+              </td>
+          </tr>
+        </table>
+        
+      </div>
+  </header>
+
+</body>
+</html>

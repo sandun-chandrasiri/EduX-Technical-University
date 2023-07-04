@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- @author: Sandun Chandrasiri -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> EduX Technical University </title>
+    <link rel="stylesheet" href="../static/css/style-index.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><a href="/">EduX Technical University></a></div>
+      <ul class="menu">
+        
+      </ul>
+      <div class="buttons">
+        <a href="/">Home</a>
+        <a href="/login">Login</a>
+        <a href="/login">Register</a>
+      </div>
+    </nav>
+    <div class="user-block">
+      {% for user in users %}
+        <div class="user-card">
+          <div>
+            {{ user.name }}
+          </div>
+          <div>
+            {{ user.registration_no }}
+          </div>
+          <div class="profile-btn">
+              <a href="/profile/{{ user.registration_no }}">View Profile</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="play-button">
+      <span class="play">Explore Students</span>
+      <i class="fas fa-play" onclick="click()"></i>
+    </div>
+  </header>
+
+</body>
+</html>
